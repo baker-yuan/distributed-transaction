@@ -1,0 +1,1 @@
+sh seata-server.sh -p 8888 -m file

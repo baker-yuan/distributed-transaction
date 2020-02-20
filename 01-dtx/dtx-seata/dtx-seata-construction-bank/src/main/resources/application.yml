@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: construction-bank
+  profiles: 
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+
+server:
+  servlet:
+    context-path: /construction
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
