@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: agricultural-bank
+  profiles:
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+
+server:
+  servlet:
+    context-path: /agricultural
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+
+
+logging:
+  level:
+    root: INFO
+    io:
+      seata: DEBUG
+    org:
+      springframework:
+        cloud:
+          alibaba:
+            seata:
+              web: DEBUG
+  pattern:
+    console: "[%thread] %-5level %logger{36} - %msg%n"

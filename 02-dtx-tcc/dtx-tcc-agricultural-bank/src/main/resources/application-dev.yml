@@ -1,0 +1,43 @@
+server: 
+  port: 56083
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  datasource:
+    ds0:
+      url: jdbc:mysql://39.106.196.224:56083/bank?characterEncoding=utf-8&serverTimezone=UTC&useSSL=false&useUnicode=true
+      username: root
+      password: 123456
+      type: com.alibaba.druid.pool.DruidDataSource
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT user()
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      connection-properties: druid.stat.mergeSql:true;druid.stat.slowSqlMillis:5000
+
+org:
+  dromara:
+    hmily :
+      serializer: kryo
+      recoverDelayTime: 30
+      retryMax: 30
+      scheduledDelay: 30
+      scheduledThreadMax: 10
+      repositorySupport: db
+      started: true
+      hmilyDbConfig:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url:  jdbc:mysql://39.106.196.224:56083/hmily?characterEncoding=utf-8&serverTimezone=UTC&useSSL=false&useUnicode=true
+        username: root
+        password: 123456

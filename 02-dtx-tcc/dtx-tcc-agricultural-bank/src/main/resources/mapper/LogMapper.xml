@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bug.agricultural.dao.LogMapper">
+
+
+    <insert id="addTry">
+        insert into local_try_log
+        values (#{txNo}, now())
+    </insert>
+
+
+    <insert id="addConfirm">
+        insert into local_confirm_log
+        values (#{txNo}, now())
+    </insert>
+
+    <insert id="addCancel">
+        insert into local_cancel_log
+        values (#{txNo}, now())
+    </insert>
+
+
+    <select id="isExistTry" resultType="java.lang.Integer">
+        select count(1)
+        from local_try_log
+        where tx_no = #{txNo}
+    </select>
+
+    <select id="isExistConfirm" resultType="java.lang.Integer">
+        select count(1)
+        from local_confirm_log
+        where tx_no = #{txNo}
+    </select>
+
+    <select id="isExistCancel" resultType="java.lang.Integer">
+        select count(1)
+        from local_cancel_log
+        where tx_no = #{txNo}
+    </select>
+</mapper>
