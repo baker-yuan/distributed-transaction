@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bug.agricultural.dao.JudgeMapper">
+
+    <select id="isExistTx" resultType="java.lang.Integer">
+        select count(1)
+        from de_duplication
+        where tx_no = #{txNo}
+    </select>
+
+
+    <insert id="addTx">
+        insert into de_duplication
+        values (#{txNo}, now())
+    </insert>
+</mapper>
