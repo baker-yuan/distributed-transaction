@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.bug</groupId>
+        <groupId>com.yuanyu.dtxtcc</groupId>
         <artifactId>dtx-tcc-construction-bank</artifactId>
-        <version>0.0.2-SNAPSHOT</version>
+        <version>1.0.0.RELEASE</version>
     </parent>
     <artifactId>construction-bank-client</artifactId>
 
@@ -17,13 +17,12 @@
         </dependency>
 
         <dependency>
-            <groupId>com.bug</groupId>
+            <groupId>com.yuanyu.dtxtcc</groupId>
             <artifactId>construction-bank-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <version>1.0.0.RELEASE</version>
         </dependency>
 
-        <!--hmily-->
+        <!-- hmily -->
         <dependency>
             <groupId>org.dromara</groupId>
             <artifactId>hmily-springcloud</artifactId>

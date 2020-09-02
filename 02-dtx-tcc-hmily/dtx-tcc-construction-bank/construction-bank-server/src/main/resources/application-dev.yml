@@ -1,15 +1,10 @@
 server: 
   port: 56084
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-
 spring:
   datasource:
     ds0:
-      url: jdbc:mysql://39.106.196.224:56084/bank?characterEncoding=utf-8&serverTimezone=UTC&useSSL=false&useUnicode=true
+      url: jdbc:mysql://121.36.33.154:56084/bank?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&useUnicode=true&useSSL=true
       username: root
       password: 123456
       type: com.alibaba.druid.pool.DruidDataSource

@@ -1,5 +1,0 @@
-docker run -di --name construction_bank_2 -p 56084:3306 -e MYSQL_ROOT_PASSWORD=123456  mysql:8.0.18
-
-jdbc:mysql://39.106.196.224:56084?serverTimezone=UTC
-jdbc:mysql://39.106.196.224:56084/bank?serverTimezone=UTC
-

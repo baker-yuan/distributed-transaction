@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.bug</groupId>
+    <groupId>com.yuanyu.dtxtcc</groupId>
     <artifactId>dtx-tcc-construction-bank</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>1.0.0.RELEASE</version>
 
     <packaging>pom</packaging>
 
@@ -19,46 +19,54 @@
         <module>construction-bank-server</module>
     </modules>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+        <spring-boot.version>2.1.0.RELEASE</spring-boot.version>
+        <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
+        <druid-starter.version>1.1.16</druid-starter.version>
+        <mysql.version>8.0.18</mysql.version>
+        <mybatis-starter.version>1.3.2</mybatis-starter.version>
+        <hmily-springcloud.version>2.0.4-RELEASE</hmily-springcloud.version>
+
+    </properties>
 
     <dependencyManagement>
-
         <dependencies>
-
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.1.3.RELEASE</version>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.RELEASE</version>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
-
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/org.dromara/hmily-springcloud -->
             <dependency>
                 <groupId>org.dromara</groupId>
                 <artifactId>hmily-springcloud</artifactId>
-                <version>2.0.4-RELEASE</version>
+                <version>${hmily-springcloud.version}</version>
             </dependency>
-
-
-            <!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
-                <version>1.1.16</version>
+                <version>${druid-starter.version}</version>
             </dependency>
-
-
-
-
         </dependencies>
 
     </dependencyManagement>

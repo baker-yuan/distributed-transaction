@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <groupId>cn.yuanyu</groupId>
+        <groupId>cn.yuanyu.dtxseata</groupId>
         <artifactId>dtx-seata-construction-bank</artifactId>
         <version>1.0.0.RELEASE</version>
     </parent>
@@ -55,7 +55,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.bug</groupId>
+            <groupId>cn.yuanyu.dtxseata</groupId>
             <artifactId>construction-bank-common</artifactId>
             <version>1.0.0.RELEASE</version>
             <scope>compile</scope>

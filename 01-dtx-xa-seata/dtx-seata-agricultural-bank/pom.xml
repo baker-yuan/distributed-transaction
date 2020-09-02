@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
 
-    <groupId>cn.yuanyu</groupId>
+    <groupId>cn.yuanyu.seata</groupId>
     <artifactId>dtx-seata-agricultural-bank</artifactId>
     <version>1.0.0.RELEASE</version>
 
@@ -109,7 +109,7 @@
 
         <!-- 引入操作construction的客户端 -->
         <dependency>
-            <groupId>cn.yuanyu</groupId>
+            <groupId>cn.yuanyu.dtxseata</groupId>
             <artifactId>construction-bank-client</artifactId>
             <version>${construction-bank-client.version}</version>
         </dependency>
