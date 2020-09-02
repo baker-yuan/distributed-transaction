@@ -12,13 +12,12 @@ server:
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
-
-
-
-
-
-
-
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        loggerLevel: full
 
 
 logging:
