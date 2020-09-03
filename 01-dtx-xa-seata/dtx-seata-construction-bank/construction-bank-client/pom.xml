@@ -10,19 +10,21 @@
     </parent>
     <artifactId>construction-bank-client</artifactId>
 
+    <properties>
+        <construction-bank-common.version>1.0.0.RELEASE</construction-bank-common.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-
         <dependency>
             <groupId>cn.yuanyu.dtxseata</groupId>
             <artifactId>construction-bank-common</artifactId>
-            <version>1.0.0.RELEASE</version>
+            <version>${construction-bank-common.version}</version>
             <scope>compile</scope>
         </dependency>
-
     </dependencies>
 
 </project>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.nobug.dtx.notify.pay.dao.AccountPayMapper">
+<mapper namespace="cn.yuanyu.dtxnotifymsg.pay.dao.AccountPayMapper">
 
 
     <insert id="insertAccountPay">
@@ -9,7 +9,7 @@
     </insert>
 
 
-    <select id="findByIdTxNo" resultType="com.nobug.dtx.notify.pay.entity.AccountPay">
+    <select id="findByIdTxNo" resultType="cn.yuanyu.dtxnotifymsg.pay.entity.AccountPay">
         select id, account_no accountName, pay_amount payAmount, result
         from account_pay
         where id = #{txNo}

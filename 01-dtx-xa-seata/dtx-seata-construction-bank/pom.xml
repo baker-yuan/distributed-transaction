@@ -19,12 +19,14 @@
     </modules>
 
     <properties>
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
+
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
         <spring-boot.version>2.1.0.RELEASE</spring-boot.version>
         <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
+
         <mybatis-starter.version>1.3.2</mybatis-starter.version>
         <mysql-connector.version>8.0.18</mysql-connector.version>
     </properties>
