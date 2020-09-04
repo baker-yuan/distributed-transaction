@@ -24,7 +24,7 @@ public class AccountPayController {
      */
     @PostMapping(value = "/paydo")
     public AccountPay pay(@RequestBody AccountPay accountPay){
-        //生成事务编号
+        // 生成事务编号
         String txNo = UUID.randomUUID().toString();
         accountPay.setId(txNo);
         return accountPayService.insertAccountPay(accountPay);

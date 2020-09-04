@@ -68,7 +68,6 @@
                 <version>${druid-starter.version}</version>
             </dependency>
         </dependencies>
-
     </dependencyManagement>
 
 

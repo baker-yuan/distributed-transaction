@@ -13,8 +13,9 @@ public interface AccountInfoMapper {
 
     /**
      * 修改账户金额
+     *
      * @param accountName 用户名
-     * @param amount 修改金额大小
+     * @param amount      修改金额大小
      */
     int updateAccountBalance(@Param("accountName") String accountName, @Param("amount") Double amount);
 
@@ -22,7 +23,7 @@ public interface AccountInfoMapper {
     /**
      * 根据用户名查询用户
      */
-    AccountInfo getUserInfoByName(@Param("accountName")String accountName);
+    AccountInfo getUserInfoByName(@Param("accountName") String accountName);
 
     /**
      * 获取所有的用户信息

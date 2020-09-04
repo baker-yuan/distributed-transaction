@@ -24,7 +24,7 @@ docker run \
 
 ```bash
 docker run \
---name mysql_dtx_agricultural_bank \
+--name mysql_dtx_seata_agricultural_bank \
 --env MYSQL_ROOT_HOST=%.%.%.% \
 --env MYSQL_ROOT_PASSWORD=123456 \
 -p 56081:3306  \
@@ -73,7 +73,7 @@ insert  into `account_info`(`id`,`account_name`,`account_no`,`account_password`,
 
 ```
 docker run \
---name mysql_dtx_construction_bank \
+--name mysql_dtx_seata_construction_bank \
 --env MYSQL_ROOT_HOST=%.%.%.% \
 --env MYSQL_ROOT_PASSWORD=123456 \
 -p 56082:3306  \

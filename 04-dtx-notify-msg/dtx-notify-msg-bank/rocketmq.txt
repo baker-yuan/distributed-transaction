@@ -1,5 +1,0 @@
-https://www.cnblogs.com/linjiqin/p/9553663.html
-
-
-start mqnamesrv.cmd
-start mqbroker.cmd -n 127.0.0.1:9876 autoCreateTopicEnable=true

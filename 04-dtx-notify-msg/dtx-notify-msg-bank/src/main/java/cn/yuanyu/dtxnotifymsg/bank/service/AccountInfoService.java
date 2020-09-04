@@ -1,11 +1,11 @@
 package cn.yuanyu.dtxnotifymsg.bank.service;
 
+
 import cn.yuanyu.dtxnotifymsg.bank.entity.AccountInfo;
 import cn.yuanyu.dtxnotifymsg.bank.model.AccountChangeEvent;
-import com.nobug.dtx.notify.pay.entity.AccountPay;
+import cn.yuanyu.dtxnotifymsg.pay.entity.AccountPay;
 
 import java.util.List;
-
 
 public interface AccountInfoService {
 

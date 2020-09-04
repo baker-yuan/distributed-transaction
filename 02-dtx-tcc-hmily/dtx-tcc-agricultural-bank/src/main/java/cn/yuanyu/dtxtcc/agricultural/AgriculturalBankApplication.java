@@ -5,17 +5,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration;
 import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author yuanyu
  */
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @SpringBootApplication(exclude = {MongoAutoConfiguration.class, MongoDataAutoConfiguration.class})
 @EnableFeignClients(basePackages = {"cn.yuanyu.dtxtcc.construction.client"})
-@ComponentScan({"cn.yuanyu.dtxtcc.agricultural","org.dromara.hmily"}) // 1.扫描
+@ComponentScan({"cn.yuanyu.dtxtcc.agricultural","org.dromara.hmily"}) // TODO 1.扫描
 public class AgriculturalBankApplication {
     public static void main(String[] args) {
         new SpringApplicationBuilder(AgriculturalBankApplication.class)

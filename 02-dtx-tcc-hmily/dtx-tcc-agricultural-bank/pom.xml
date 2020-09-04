@@ -71,22 +71,21 @@
     </dependencyManagement>
 
     <dependencies>
+
+        <!-- hmily -->
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>hmily-springcloud</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-            </dependency>
-        -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
+            <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <version>0.2.2.RELEASE</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
@@ -111,16 +110,12 @@
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
+
         <!-- 引入操作construction的客户端 -->
         <dependency>
             <groupId>com.yuanyu.dtxtcc</groupId>
             <artifactId>construction-bank-client</artifactId>
             <version>${construction-bank-client.version}</version>
-        </dependency>
-        <!--hmily-->
-        <dependency>
-            <groupId>org.dromara</groupId>
-            <artifactId>hmily-springcloud</artifactId>
         </dependency>
     </dependencies>
 

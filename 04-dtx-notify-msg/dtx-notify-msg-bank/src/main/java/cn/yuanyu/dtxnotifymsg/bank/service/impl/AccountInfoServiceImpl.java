@@ -5,8 +5,8 @@ import cn.yuanyu.dtxnotifymsg.bank.dao.JudgeMapper;
 import cn.yuanyu.dtxnotifymsg.bank.entity.AccountInfo;
 import cn.yuanyu.dtxnotifymsg.bank.model.AccountChangeEvent;
 import cn.yuanyu.dtxnotifymsg.bank.service.AccountInfoService;
-import com.nobug.dtx.notify.pay.client.PayClient;
-import com.nobug.dtx.notify.pay.entity.AccountPay;
+import cn.yuanyu.dtxnotifymsg.pay.client.PayClient;
+import cn.yuanyu.dtxnotifymsg.pay.entity.AccountPay;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,13 +20,13 @@ import java.util.List;
 public class AccountInfoServiceImpl implements AccountInfoService {
 
     @Autowired
-    AccountInfoMapper accountInfoMapper;
+    private AccountInfoMapper accountInfoMapper;
 
     @Autowired
-    JudgeMapper judgeMapper;
+    private JudgeMapper judgeMapper;
 
     @Autowired
-    PayClient payClient;
+    private PayClient payClient;
 
     /**
      * 更新账户金额

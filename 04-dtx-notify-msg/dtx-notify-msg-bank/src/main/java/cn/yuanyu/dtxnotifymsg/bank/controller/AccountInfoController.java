@@ -2,7 +2,7 @@ package cn.yuanyu.dtxnotifymsg.bank.controller;
 
 import cn.yuanyu.dtxnotifymsg.bank.entity.AccountInfo;
 import cn.yuanyu.dtxnotifymsg.bank.service.AccountInfoService;
-import com.nobug.dtx.notify.pay.entity.AccountPay;
+import cn.yuanyu.dtxnotifymsg.pay.entity.AccountPay;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,33 +24,31 @@ public class AccountInfoController {
     /**
      * http://localhost:56087/bank/account/payresult/
      * 主动查询充值结果
+     *
      * @param txNo 事务号
      */
     @GetMapping(value = "/payresult/{txNo}")
-    public AccountPay result(@PathVariable("txNo") String txNo){
+    public AccountPay result(@PathVariable("txNo") String txNo) {
         return accountInfoService.queryPayResult(txNo);
     }
 
 
-
     /**
-     * http://localhost:56087/bank/account/%E5%BC%A0%E4%B8%89
+     * http://localhost:56087/bank/account/张三
      */
     @GetMapping("/{accountName}")
-    AccountInfo getUserInfoByName(@PathVariable("accountName") String accountName){
+    AccountInfo getUserInfoByName(@PathVariable("accountName") String accountName) {
         return accountInfoService.getUserInfoByName(accountName);
     }
-
 
 
     /**
      * http://localhost:56087/bank/account/all
      */
     @GetMapping("/all")
-    public List<AccountInfo> getAllUserInfo(){
+    public List<AccountInfo> getAllUserInfo() {
         return accountInfoService.getAllUserInfo();
     }
-
 
 
 }

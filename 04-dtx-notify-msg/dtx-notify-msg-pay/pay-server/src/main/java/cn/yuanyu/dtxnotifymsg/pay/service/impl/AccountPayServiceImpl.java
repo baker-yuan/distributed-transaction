@@ -13,10 +13,10 @@ import org.springframework.stereotype.Service;
 public class AccountPayServiceImpl implements AccountPayService {
 
     @Autowired
-    AccountPayMapper accountPayDao;
+    private AccountPayMapper accountPayDao;
 
     @Autowired
-    RocketMQTemplate mqTemplate;
+    private RocketMQTemplate mqTemplate;
 
 
     /**
@@ -26,7 +26,7 @@ public class AccountPayServiceImpl implements AccountPayService {
     public AccountPay insertAccountPay(AccountPay accountPay) {
         int success = accountPayDao.insertAccountPay(accountPay.getId(), accountPay.getAccountName(), accountPay.getPayAmount(), "success");
         if (success > 0) {
-            //发送通知,使用普通消息发送通知
+            // 发送通知,使用普通消息发送通知
             accountPay.setResult("success");
             mqTemplate.convertAndSend("topic_notify_msg", accountPay);
             return accountPay;

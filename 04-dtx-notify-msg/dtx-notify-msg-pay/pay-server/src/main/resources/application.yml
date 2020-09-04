@@ -16,14 +16,7 @@ mybatis:
 
 logging:
   level:
-    root: INFO
-    io:
-      seata: DEBUG
-    org:
-      springframework:
-        cloud:
-          alibaba:
-            seata:
-              web: DEBUG
+    cn.yuanyu.dtxnotifymsg:
+      INFO
   pattern:
     console: "[%thread] %-5level %logger{36} - %msg%n"
