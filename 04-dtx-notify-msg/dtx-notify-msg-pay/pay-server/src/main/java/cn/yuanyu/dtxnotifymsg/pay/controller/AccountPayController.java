@@ -18,12 +18,13 @@ public class AccountPayController {
     //  "accountName": "张三",
     //  "payAmount": 10
     //}
+
     /**
      * 充值
      * http://localhost:56088/pay/paydo
      */
     @PostMapping(value = "/paydo")
-    public AccountPay pay(@RequestBody AccountPay accountPay){
+    public AccountPay pay(@RequestBody AccountPay accountPay) {
         // 生成事务编号
         String txNo = UUID.randomUUID().toString();
         accountPay.setId(txNo);
@@ -32,10 +33,11 @@ public class AccountPayController {
 
     /**
      * 查询充值结果
+     *
      * @param txNo 事务号
      */
     @GetMapping(value = "/payresult/{txNo}")
-    public AccountPay payresult(@PathVariable("txNo") String txNo){
+    public AccountPay payresult(@PathVariable("txNo") String txNo) {
         return accountPayService.getAccountPay(txNo);
     }
 }

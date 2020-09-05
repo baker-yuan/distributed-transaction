@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * 远程调用pay充值系统
+ *
  * @author yuanyu
  */
 @FeignClient(value = "dtx-notify-msg-pay", fallback = PayFallback.class)

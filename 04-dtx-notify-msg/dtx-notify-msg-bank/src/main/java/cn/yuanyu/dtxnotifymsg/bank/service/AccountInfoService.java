@@ -12,6 +12,7 @@ public interface AccountInfoService {
 
     /**
      * 更新账户金额
+     *
      * @param accountChange
      */
     void updateAccountBalance(AccountChangeEvent accountChange);
@@ -19,12 +20,10 @@ public interface AccountInfoService {
 
     /**
      * 查询充值结果（远程调用）
+     *
      * @param txNo 事务号
      */
     AccountPay queryPayResult(String txNo);
-
-
-
 
 
     /**

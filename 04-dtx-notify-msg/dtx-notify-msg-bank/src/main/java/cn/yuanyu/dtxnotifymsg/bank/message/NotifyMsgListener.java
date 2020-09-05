@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class NotifyMsgListener implements RocketMQListener<AccountPay> {
 
     @Autowired
-    AccountInfoService accountInfoService;
+    private AccountInfoService accountInfoService;
 
     /**
      * 接收消息

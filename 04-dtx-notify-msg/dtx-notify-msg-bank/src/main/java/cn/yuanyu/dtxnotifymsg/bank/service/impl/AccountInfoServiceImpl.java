@@ -14,9 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-
-@Service
 @Slf4j
+@Service
 public class AccountInfoServiceImpl implements AccountInfoService {
 
     @Autowired
@@ -34,14 +33,14 @@ public class AccountInfoServiceImpl implements AccountInfoService {
     @Override
     @Transactional
     public void updateAccountBalance(AccountChangeEvent accountChange) {
-        //幂等校验
+        // 幂等校验
         if (judgeMapper.isExistTx(accountChange.getTxNo()) > 0) {
             return;
         }
         int count = accountInfoMapper.updateAccountBalance(accountChange.getAccountName(), accountChange.getAmount());
 
         if (count > 0) {
-            //插入事务记录，用于幂等控制
+            // 插入事务记录，用于幂等控制
             judgeMapper.addTx(accountChange.getTxNo());
         } else {
             log.info("更新账户金额失败：{}", accountChange);
@@ -54,15 +53,14 @@ public class AccountInfoServiceImpl implements AccountInfoService {
      */
     @Override
     public AccountPay queryPayResult(String txNo) {
-        //远程调用
+        // 远程调用
         AccountPay payresult = payClient.payResult(txNo);
         if ("success".equals(payresult.getResult())) {
-            //更新账户金额
+            // 更新账户金额
             AccountChangeEvent accountChangeEvent = new AccountChangeEvent();
-
-            accountChangeEvent.setAccountName(payresult.getAccountName());//账号
-            accountChangeEvent.setAmount(payresult.getPayAmount());//金额
-            accountChangeEvent.setTxNo(payresult.getId());//充值事务号
+            accountChangeEvent.setAccountName(payresult.getAccountName());      // 账号
+            accountChangeEvent.setAmount(payresult.getPayAmount());             // 金额
+            accountChangeEvent.setTxNo(payresult.getId());                      // 充值事务号
             updateAccountBalance(accountChangeEvent);
         }
         return payresult;
