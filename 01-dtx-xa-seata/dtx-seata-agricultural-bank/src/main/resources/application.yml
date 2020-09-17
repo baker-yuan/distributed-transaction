@@ -17,7 +17,12 @@ ribbon:
   eager-load:
     enabled: true
     clients: construction-bank
-
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 1000
+        read-timeout: 3000
 
 logging:
   level:

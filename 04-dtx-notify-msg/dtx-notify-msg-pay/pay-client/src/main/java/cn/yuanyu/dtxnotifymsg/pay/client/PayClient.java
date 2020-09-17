@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
  */
 @FeignClient(value = "dtx-notify-msg-pay", fallback = PayFallback.class)
 public interface PayClient {
-
-
     /**
      * 远程调用充值系统的接口查询充值结果
      */

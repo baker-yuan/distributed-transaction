@@ -2,10 +2,9 @@
 
 # 文档
 
- https://github.com/seata/seata 
+1.  https://github.com/seata/seata 
 
- http://seata.io/zh-cn/ 
-
+2.  http://seata.io/zh-cn/ 
 
 
 # 创建nacos容器
@@ -140,3 +139,16 @@ http://localhost:56082/construction/transfer/all
 2020-09-01 23:26:44.870  INFO 2008 --- [imeoutChecker_1] i.s.core.rpc.netty.NettyPoolableFactory  : register success, cost 428 ms, version:0.7.1,role:TMROLE,channel:[id: 0xb89289fe, L:/192.168.43.252:10243 - R:/121.36.33.154:8888]
 
 2020-09-01 23:26:54.562 DEBUG 2008 --- [lector_RMROLE_1] i.s.c.r.netty.AbstractRpcRemotingClient  : received PONG from /121.36.33.154:8888
+
+
+
+
+
+
+
+```
+docker start nacos_dtx_seata;
+docker start mysql_dtx_seata_agricultural_bank;
+docker start mysql_dtx_seata_construction_bank;
+```
+
