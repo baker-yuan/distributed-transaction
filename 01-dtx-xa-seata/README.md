@@ -3,8 +3,9 @@
 # 文档
 
 1.  https://github.com/seata/seata 
-
 2.  http://seata.io/zh-cn/ 
+3.   http://seata.io/zh-cn/docs/overview/what-is-seata.html 
+4.   https://github.com/seata/seata-samples/tree/master/seata-xa 
 
 
 # 创建nacos容器
@@ -35,6 +36,7 @@ jdbc:mysql://121.36.33.154:56081?serverTimezone=UTC
 ```
 
 ```sql
+DROP DATABASE IF EXISTS `user`;
 CREATE DATABASE `user`;
 USE `user`;
 
@@ -84,6 +86,7 @@ jdbc:mysql://121.36.33.154:56082?serverTimezone=UTC
 ```
 
 ```sql
+DROP DATABASE IF EXISTS `user`;
 CREATE DATABASE `user`;
 USE `user`;
 
@@ -147,8 +150,25 @@ http://localhost:56082/construction/transfer/all
 
 
 ```
+docker start seata_server;
 docker start nacos_dtx_seata;
 docker start mysql_dtx_seata_agricultural_bank;
 docker start mysql_dtx_seata_construction_bank;
+```
+
+
+
+ https://hub.docker.com/r/seataio/seata-server/tags 
+
+```bash
+docker run \
+--name seata_server \
+-p 8888:8091 \
+-di seataio/seata-server:1.1.0
+```
+
+```bash
+### 查看日志
+docker logs -f seata_server 
 ```
 
