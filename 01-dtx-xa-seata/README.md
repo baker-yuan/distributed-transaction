@@ -5,7 +5,8 @@
 1.  https://github.com/seata/seata 
 2.  http://seata.io/zh-cn/ 
 3.   http://seata.io/zh-cn/docs/overview/what-is-seata.html 
-4.   https://github.com/seata/seata-samples/tree/master/seata-xa 
+4.  http://seata.io/zh-cn/docs/dev/mode/xa-mode.html 
+5.   https://github.com/seata/seata-samples/tree/master/seata-xa 
 
 
 # 创建nacos容器

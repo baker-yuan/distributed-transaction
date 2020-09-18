@@ -1,6 +1,3 @@
-server: 
-  port: 56082
-
 spring:
   datasource:
     ds0:
