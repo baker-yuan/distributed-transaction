@@ -75,11 +75,11 @@ xa recover;
 | insert into storage_tbl(commodity_code, count) values ('C100000', '100'); |                                                              | insert into account_tbl(user_id, money) values ('U100000', '10000'); |
 | xa start 'storage_order_account_14582147895','storage';      | xa start 'storage_order_account_14582147895','order';        | xa start 'storage_order_account_14582147895','account';      |
 | update storage_tbl set count = count - 30 where commodity_code = 'C100000'; | insert order_tbl(user_id, commodity_code, count, money) values ('U100000', 'C100000', 30, 3000); | update account_tbl set money = money - 3000 where user_id = 'U100000'; |
-| xa prepare 'storage_order_account_14582147895','storage';    | xa prepare 'storage_order_account_14582147895','order';      | xa prepare 'storage_order_account_14582147895','account';    |
-| xa recover \G                                                | xa recover \G                                                | xa recover \G                                                |
-| xa commit 'storage_order_account_14582147895','storage';     | xa commit 'storage_order_account_14582147895','order';       | xa commit 'storage_order_account_14582147895','account';     |
-|                                                              |                                                              |                                                              |
 | xa end 'storage_order_account_14582147895','storage';        | xa end 'storage_order_account_14582147895','order';          | xa end 'storage_order_account_14582147895','account';        |
+| xa prepare 'storage_order_account_14582147895','storage';    | xa prepare 'storage_order_account_14582147895','order';      | xa prepare 'storage_order_account_14582147895','account';    |
+| xa recover;                                                  | xa recover;                                                  | xa recover;                                                  |
+| xa commit 'storage_order_account_14582147895','storage';     | xa commit 'storage_order_account_14582147895','order';       | xa commit 'storage_order_account_14582147895','account';     |
+| select * from storage_tbl;                                   | select * from order_tbl;                                     | select * from account_tbl;                                   |
 
 
 
