@@ -249,8 +249,6 @@ account-xa
 
 
 
-
-
 ```
 docker start mysql_dtx_seata_official_order_xa;
 docker start mysql_dtx_seata_official_storage_xa;
