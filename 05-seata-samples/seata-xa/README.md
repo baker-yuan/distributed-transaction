@@ -31,12 +31,12 @@ docker run \
 --name mysql_dtx_seata_official_account_xa \
 --env MYSQL_ROOT_HOST=%.%.%.% \
 --env MYSQL_ROOT_PASSWORD=123456 \
--p 56088:3306  \
+-p 56092:3306  \
 -di mysql:5.6
 ```
 
 ```bash
-jdbc:mysql://121.36.33.154:56088?serverTimezone=UTC
+jdbc:mysql://121.36.33.154:56092?serverTimezone=UTC
 ```
 
 ```sql
@@ -63,12 +63,12 @@ docker run \
 --name mysql_dtx_seata_official_order_xa \
 --env MYSQL_ROOT_HOST=%.%.%.% \
 --env MYSQL_ROOT_PASSWORD=123456 \
--p 56089:3306  \
+-p 56093:3306  \
 -di mysql:5.6
 ```
 
 ```bash
-jdbc:mysql://121.36.33.154:56089?serverTimezone=UTC
+jdbc:mysql://121.36.33.154:56093?serverTimezone=UTC
 ```
 
 ```sql
@@ -95,12 +95,12 @@ docker run \
 --name mysql_dtx_seata_official_storage_xa \
 --env MYSQL_ROOT_HOST=%.%.%.% \
 --env MYSQL_ROOT_PASSWORD=123456 \
--p 56091:3306  \
+-p 56094:3306  \
 -di mysql:5.6
 ```
 
 ```bash
-jdbc:mysql://121.36.33.154:56091?serverTimezone=UTC
+jdbc:mysql://121.36.33.154:56094?serverTimezone=UTC
 ```
 
 ```sql
