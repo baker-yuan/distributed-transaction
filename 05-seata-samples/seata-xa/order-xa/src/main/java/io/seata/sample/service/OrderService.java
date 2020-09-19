@@ -28,6 +28,7 @@ public class OrderService {
      * @param count         商品数量
      */
     public void create(String userId, String commodityCode, Integer count) {
+        log.info("parameter => userId={},commodityCode={},count={}", userId, commodityCode, count);
         String xid = RootContext.getXID();
         log.info("create order in transaction: " + xid);
         // 定单总价 = 订购数量(count) * 商品单价(100)

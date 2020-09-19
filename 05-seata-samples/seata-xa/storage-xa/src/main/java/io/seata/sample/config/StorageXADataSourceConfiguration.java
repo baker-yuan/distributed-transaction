@@ -1,7 +1,7 @@
 package io.seata.sample.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import io.seata.rm.datasource.xa.DataSourceProxyXA;
+import io.seata.rm.datasource.DataSourceProxy;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,10 +20,14 @@ public class StorageXADataSourceConfiguration {
 
     @Bean("dataSourceProxy")
     public DataSource dataSource(DruidDataSource druidDataSource) {
+
         // DataSourceProxy for AT mode
-        // return new DataSourceProxy(druidDataSource);
+        // io.seata.rm.datasource.DataSourceProxy
+        return new DataSourceProxy(druidDataSource);
+
         // DataSourceProxyXA for XA mode
-        return new DataSourceProxyXA(druidDataSource);
+        // io.seata.rm.datasource.xa.DataSourceProxyXA
+        // return new DataSourceProxyXA(druidDataSource);
     }
 
     @Bean("jdbcTemplate")

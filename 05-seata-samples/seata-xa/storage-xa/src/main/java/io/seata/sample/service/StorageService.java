@@ -20,6 +20,7 @@ public class StorageService {
 
 
     public void deduct(String commodityCode, int count) {
+        log.info("parameter => commodityCode={},count={}", commodityCode, count);
         String xid = RootContext.getXID();
         log.info("deduct storage balance in transaction: " + xid);
         jdbcTemplate.update("update storage_tbl set count = count - ? where commodity_code = ?", new Object[]{count, commodityCode});

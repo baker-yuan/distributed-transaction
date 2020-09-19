@@ -25,8 +25,7 @@ public class AccountServiceTest {
 
     @Test
     public void jdbcTemplate() {
-        //jdbcTemplate.update("update account_tbl set money = money - ? where user_id = ?", new Object[]{10, "U100000"});
-
+        // jdbcTemplate.update("update account_tbl set money = money - ? where user_id = ?", new Object[]{10, "U100000"});
         int balance = jdbcTemplate.queryForObject("select money from account_tbl where user_id = ?", new Object[]{"U100000"}, Integer.class);
         log.info("balance => {}", balance);
     }

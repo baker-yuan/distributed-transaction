@@ -33,6 +33,7 @@ public class BusinessService {
      */
     @GlobalTransactional //
     public void purchase(String userId, String commodityCode, int orderCount, boolean rollback) {
+        log.info("parameter => userId={},commodityCode={},orderCount={},rollback={}", userId, commodityCode, orderCount, rollback);
         String xid = RootContext.getXID();
         log.info("New Transaction Begins: " + xid);
         // 扣减库存

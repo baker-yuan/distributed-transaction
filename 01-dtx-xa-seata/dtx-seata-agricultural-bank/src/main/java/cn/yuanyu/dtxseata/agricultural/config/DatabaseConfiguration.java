@@ -29,6 +29,10 @@ public class DatabaseConfiguration {
     public DataSource dataSource(DruidDataSource ds0)  {
         // io.seata.rm.datasource.DataSourceProxy
         return new DataSourceProxy(ds0);
+
     }
+
+
+
 
 }

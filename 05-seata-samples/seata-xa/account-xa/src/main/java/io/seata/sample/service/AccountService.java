@@ -20,6 +20,7 @@ public class AccountService {
 
     @Transactional
     public void reduce(String userId, int money) {
+        log.info("parameter => userId={},money={}", userId, money);
         String xid = RootContext.getXID();
         log.info("reduce account balance in transaction: " + xid);
         jdbcTemplate.update("update account_tbl set money = money - ? where user_id = ?", new Object[]{money, userId});

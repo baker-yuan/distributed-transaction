@@ -3,6 +3,7 @@ package io.seata.sample.controller;
 import io.seata.sample.service.BusinessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import static io.seata.sample.service.BusinessService.SUCCESS;
@@ -17,9 +18,10 @@ public class BusinessController {
      * @param rollback 是否回滚
      * @param count    购买商品数量
      */
-    // http://127.0.0.1:56090/purchase?rollback=true&count=1
+    // http://127.0.0.1:56090/purchase?rollback=false&count=30
+    //
     @GetMapping(value = "/purchase")
-    public String purchase(Boolean rollback, Integer count) {
+    public String purchase(@RequestParam Boolean rollback, @RequestParam Integer count) {
         int orderCount = 30;
         if (count != null) {
             orderCount = count;
