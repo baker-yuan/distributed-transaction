@@ -1,10 +1,11 @@
+1. https://www.imooc.com/read/43/article/703 
+2. https://github.com/seata/seata-samples/tree/master/seata-xa 
+
 # 1 购买商品业务正常流程
 
 1. 该商品库存减少
 2. 订单数据库插入该订单
 3. 用户余额减少
-
-https://www.imooc.com/read/43/article/703 
 
 ```sql
 -- 用户购买了30个单价为100元的商品

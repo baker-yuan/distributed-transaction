@@ -23,10 +23,10 @@ import java.util.List;
 @Service
 public class AccountInfoServiceImpl implements AccountInfoService {
     @Autowired
-    AccountInfoMapper accountInfoMapper;
+    private AccountInfoMapper accountInfoMapper;
 
     @Autowired
-    LogMapper logMapper;
+    private LogMapper logMapper;
 
     @Autowired
     private ConstructionBankClient constructionBankClient;
@@ -41,7 +41,7 @@ public class AccountInfoServiceImpl implements AccountInfoService {
      */
     @Override
     @Transactional
-    //只要标记@Hmily就是try方法，在注解中指定confirm、cancel两个方法的名字
+    //只要标记 @Hmily 就是try方法，在注解中指定confirm、cancel两个方法的名字
     @Hmily(confirmMethod = "commit", cancelMethod = "rollback")
     public void transferOut(String from, String to, Double amount) {
         //获取全局事务id
@@ -61,7 +61,7 @@ public class AccountInfoServiceImpl implements AccountInfoService {
             return;
         }
 
-        //3.检查余额是够扣减金额
+        //3.检查余额是否能够扣减金额
         //4.扣减金额
         if (accountInfoMapper.subtractAccountBalance(from, amount) <= 0) {
             //扣减失败

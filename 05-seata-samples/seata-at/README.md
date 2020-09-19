@@ -1,4 +1,5 @@
-1.  https://github.com/seata/seata-samples/tree/master/seata-xa 
+1.  https://github.com/seata/seata-samples/tree/master/seata-at 
+2.   https://www.jianshu.com/p/ea454a710908?from=timeline 
 
 # Sample of Seata AT mode
 
@@ -28,7 +29,7 @@ docker logs -f seata_server
 
 ```bash
 docker run \
---name mysql_dtx_seata_official_account_xa \
+--name mysql_dtx_seata_official_account_at \
 --env MYSQL_ROOT_HOST=%.%.%.% \
 --env MYSQL_ROOT_PASSWORD=123456 \
 -p 56088:3306  \
@@ -40,9 +41,9 @@ jdbc:mysql://121.36.33.154:56088?serverTimezone=UTC
 ```
 
 ```sql
-DROP DATABASE IF EXISTS `account_xa`;
-CREATE DATABASE `account_xa`;
-USE `account_xa`;
+DROP DATABASE IF EXISTS `account_at`;
+CREATE DATABASE `account_at`;
+USE `account_at`;
 
 DROP TABLE IF EXISTS `account_tbl`;
 CREATE TABLE `account_tbl`
@@ -60,7 +61,7 @@ insert into account_tbl(user_id, money) values ('U100000', '10000');
 
 ```bash
 docker run \
---name mysql_dtx_seata_official_order_xa \
+--name mysql_dtx_seata_official_order_at \
 --env MYSQL_ROOT_HOST=%.%.%.% \
 --env MYSQL_ROOT_PASSWORD=123456 \
 -p 56089:3306  \
@@ -72,9 +73,9 @@ jdbc:mysql://121.36.33.154:56089?serverTimezone=UTC
 ```
 
 ```sql
-DROP DATABASE IF EXISTS `order_xa`;
-CREATE DATABASE `order_xa`;
-USE `order_xa`;
+DROP DATABASE IF EXISTS `order_at`;
+CREATE DATABASE `order_at`;
+USE `order_at`;
 
 DROP TABLE IF EXISTS `order_tbl`;
 CREATE TABLE `order_tbl`
@@ -92,7 +93,7 @@ CREATE TABLE `order_tbl`
 
 ```bash
 docker run \
---name mysql_dtx_seata_official_storage_xa \
+--name mysql_dtx_seata_official_storage_at \
 --env MYSQL_ROOT_HOST=%.%.%.% \
 --env MYSQL_ROOT_PASSWORD=123456 \
 -p 56091:3306  \
@@ -104,9 +105,9 @@ jdbc:mysql://121.36.33.154:56091?serverTimezone=UTC
 ```
 
 ```sql
-DROP DATABASE IF EXISTS `storage_xa`;
-CREATE DATABASE `storage_xa`;
-USE `storage_xa`;
+DROP DATABASE IF EXISTS `storage_at`;
+CREATE DATABASE `storage_at`;
+USE `storage_at`;
 
 DROP TABLE IF EXISTS `storage_tbl`;
 CREATE TABLE `storage_tbl`
@@ -177,13 +178,13 @@ CREATE TABLE `undo_log`
 2020-09-19 03:54:51.612 INFO [batchLoggerPrint_1]io.seata.core.rpc.DefaultServerMessageListenerImpl.run:206 -SeataMergeMessage timeout=60000,transactionName=purchase(java.lang.String, java.lang.String, int, boolean)
 ,clientIp:14.30.2.158,vgroup:my_test_tx_group
 2020-09-19 03:54:53.004 INFO [ServerHandlerThread_1_500]io.seata.server.coordinator.AbstractCore.lambda$branchRegister$0:86 -Successfully register branch xid = 172.18.0.6:8091:2054185921, branchId = 2054185922
-2020-09-19 03:54:53.005 INFO [batchLoggerPrint_1]io.seata.core.rpc.DefaultServerMessageListenerImpl.run:206 -SeataMergeMessage xid=172.18.0.6:8091:2054185921,branchType=AT,resourceId=jdbc:mysql://121.36.33.154:56091/storage_xa,lockKey=storage_tbl:7
+2020-09-19 03:54:53.005 INFO [batchLoggerPrint_1]io.seata.core.rpc.DefaultServerMessageListenerImpl.run:206 -SeataMergeMessage xid=172.18.0.6:8091:2054185921,branchType=AT,resourceId=jdbc:mysql://121.36.33.154:56091/storage_at,lockKey=storage_tbl:7
 ,clientIp:14.30.2.158,vgroup:my_test_tx_group
 2020-09-19 03:54:54.584 INFO [ServerHandlerThread_1_500]io.seata.server.coordinator.AbstractCore.lambda$branchRegister$0:86 -Successfully register branch xid = 172.18.0.6:8091:2054185921, branchId = 2054185923
-2020-09-19 03:54:54.584 INFO [batchLoggerPrint_1]io.seata.core.rpc.DefaultServerMessageListenerImpl.run:206 -SeataMergeMessage xid=172.18.0.6:8091:2054185921,branchType=AT,resourceId=jdbc:mysql://121.36.33.154:56089/order_xa,lockKey=order_tbl:7
+2020-09-19 03:54:54.584 INFO [batchLoggerPrint_1]io.seata.core.rpc.DefaultServerMessageListenerImpl.run:206 -SeataMergeMessage xid=172.18.0.6:8091:2054185921,branchType=AT,resourceId=jdbc:mysql://121.36.33.154:56089/order_at,lockKey=order_tbl:7
 ,clientIp:14.30.2.158,vgroup:my_test_tx_group
 2020-09-19 03:54:56.303 INFO [ServerHandlerThread_1_500]io.seata.server.coordinator.AbstractCore.lambda$branchRegister$0:86 -Successfully register branch xid = 172.18.0.6:8091:2054185921, branchId = 2054185924
-2020-09-19 03:54:56.304 INFO [batchLoggerPrint_1]io.seata.core.rpc.DefaultServerMessageListenerImpl.run:206 -SeataMergeMessage xid=172.18.0.6:8091:2054185921,branchType=AT,resourceId=jdbc:mysql://121.36.33.154:56088/account_xa,lockKey=account_tbl:7
+2020-09-19 03:54:56.304 INFO [batchLoggerPrint_1]io.seata.core.rpc.DefaultServerMessageListenerImpl.run:206 -SeataMergeMessage xid=172.18.0.6:8091:2054185921,branchType=AT,resourceId=jdbc:mysql://121.36.33.154:56088/account_at,lockKey=account_tbl:7
 ,clientIp:14.30.2.158,vgroup:my_test_tx_group
 2020-09-19 03:54:56.804 INFO [batchLoggerPrint_1]io.seata.core.rpc.DefaultServerMessageListenerImpl.run:206 -SeataMergeMessage xid=172.18.0.6:8091:2054185921,extraData=null
 ,clientIp:14.30.2.158,vgroup:my_test_tx_group
@@ -191,47 +192,47 @@ CREATE TABLE `undo_log`
 ```
 
 ```bash
-### business-xa
+### business-at
 2020-09-19 11:54:51.413  INFO 1296 --- [io-56090-exec-5] i.seata.tm.api.DefaultGlobalTransaction  : Begin new global transaction [172.18.0.6:8091:2054185921]
 2020-09-19 11:54:51.414  INFO 1296 --- [io-56090-exec-5] io.seata.sample.service.BusinessService  : parameter => userId=U100000,commodityCode=C100000,orderCount=30,rollback=false
 2020-09-19 11:54:51.414  INFO 1296 --- [io-56090-exec-5] io.seata.sample.service.BusinessService  : New Transaction Begins: 172.18.0.6:8091:2054185921
 2020-09-19 11:54:56.573  INFO 1296 --- [io-56090-exec-5] i.seata.tm.api.DefaultGlobalTransaction  : [172.18.0.6:8091:2054185921] commit status: Committed
 
-### storage-xa
+### storage-at
 2020-09-19 11:54:51.422  INFO 11328 --- [io-56091-exec-3] io.seata.sample.service.StorageService   : parameter => commodityCode=C100000,count=30
 2020-09-19 11:54:51.422  INFO 11328 --- [io-56091-exec-3] io.seata.sample.service.StorageService   : deduct storage balance in transaction: 172.18.0.6:8091:2054185921
-2020-09-19 11:54:51.514 ERROR 11328 --- [io-56091-exec-3] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://121.36.33.154:56091/storage_xa?characterEncoding=utf-8&useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://121.36.33.154:56091/storage_xa?characterEncoding=utf-8&useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 148257
+2020-09-19 11:54:51.514 ERROR 11328 --- [io-56091-exec-3] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://121.36.33.154:56091/storage_at?characterEncoding=utf-8&useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://121.36.33.154:56091/storage_at?characterEncoding=utf-8&useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 148257
 2020-09-19 11:54:53.117  WARN 11328 --- [io-56091-exec-3] c.a.c.seata.web.SeataHandlerInterceptor  : xid in change during RPC from 172.18.0.6:8091:2054185921 to null
-2020-09-19 11:54:57.034  INFO 11328 --- [h_RMROLE_1_2_16] i.s.c.r.p.c.RmBranchCommitProcessor      : rm client handle branch commit process:xid=172.18.0.6:8091:2054185921,branchId=2054185922,branchType=AT,resourceId=jdbc:mysql://121.36.33.154:56091/storage_xa,applicationData=null
-2020-09-19 11:54:57.034  INFO 11328 --- [h_RMROLE_1_2_16] io.seata.rm.AbstractRMHandler            : Branch committing: 172.18.0.6:8091:2054185921 2054185922 jdbc:mysql://121.36.33.154:56091/storage_xa null
+2020-09-19 11:54:57.034  INFO 11328 --- [h_RMROLE_1_2_16] i.s.c.r.p.c.RmBranchCommitProcessor      : rm client handle branch commit process:xid=172.18.0.6:8091:2054185921,branchId=2054185922,branchType=AT,resourceId=jdbc:mysql://121.36.33.154:56091/storage_at,applicationData=null
+2020-09-19 11:54:57.034  INFO 11328 --- [h_RMROLE_1_2_16] io.seata.rm.AbstractRMHandler            : Branch committing: 172.18.0.6:8091:2054185921 2054185922 jdbc:mysql://121.36.33.154:56091/storage_at null
 2020-09-19 11:54:57.034  INFO 11328 --- [h_RMROLE_1_2_16] io.seata.rm.AbstractRMHandler            : Branch commit result: PhaseTwo_Committed
 
-### order-xa
+### order-at
 2020-09-19 11:54:53.125  INFO 8420 --- [io-56089-exec-3] io.seata.sample.service.OrderService     : parameter => userId=U100000,commodityCode=C100000,count=30
 2020-09-19 11:54:53.125  INFO 8420 --- [io-56089-exec-3] io.seata.sample.service.OrderService     : create order in transaction: 172.18.0.6:8091:2054185921
-2020-09-19 11:54:53.227 ERROR 8420 --- [io-56089-exec-3] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://121.36.33.154:56089/order_xa?characterEncoding=utf-8&useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://121.36.33.154:56089/order_xa?characterEncoding=utf-8&useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 149450
+2020-09-19 11:54:53.227 ERROR 8420 --- [io-56089-exec-3] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://121.36.33.154:56089/order_at?characterEncoding=utf-8&useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://121.36.33.154:56089/order_at?characterEncoding=utf-8&useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 149450
 2020-09-19 11:54:56.519  WARN 8420 --- [io-56089-exec-3] c.a.c.seata.web.SeataHandlerInterceptor  : xid in change during RPC from 172.18.0.6:8091:2054185921 to null
-2020-09-19 11:54:57.081  INFO 8420 --- [h_RMROLE_1_2_16] i.s.c.r.p.c.RmBranchCommitProcessor      : rm client handle branch commit process:xid=172.18.0.6:8091:2054185921,branchId=2054185923,branchType=AT,resourceId=jdbc:mysql://121.36.33.154:56089/order_xa,applicationData=null
-2020-09-19 11:54:57.081  INFO 8420 --- [h_RMROLE_1_2_16] io.seata.rm.AbstractRMHandler            : Branch committing: 172.18.0.6:8091:2054185921 2054185923 jdbc:mysql://121.36.33.154:56089/order_xa null
+2020-09-19 11:54:57.081  INFO 8420 --- [h_RMROLE_1_2_16] i.s.c.r.p.c.RmBranchCommitProcessor      : rm client handle branch commit process:xid=172.18.0.6:8091:2054185921,branchId=2054185923,branchType=AT,resourceId=jdbc:mysql://121.36.33.154:56089/order_at,applicationData=null
+2020-09-19 11:54:57.081  INFO 8420 --- [h_RMROLE_1_2_16] io.seata.rm.AbstractRMHandler            : Branch committing: 172.18.0.6:8091:2054185921 2054185923 jdbc:mysql://121.36.33.154:56089/order_at null
 2020-09-19 11:54:57.081  INFO 8420 --- [h_RMROLE_1_2_16] io.seata.rm.AbstractRMHandler            : Branch commit result: PhaseTwo_Committed
 
-### account-xa
-2020-09-19 11:54:54.793 ERROR 12080 --- [io-56088-exec-3] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://121.36.33.154:56088/account_xa?characterEncoding=utf-8&useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://121.36.33.154:56088/account_xa?characterEncoding=utf-8&useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 151285
+### account-at
+2020-09-19 11:54:54.793 ERROR 12080 --- [io-56088-exec-3] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://121.36.33.154:56088/account_at?characterEncoding=utf-8&useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://121.36.33.154:56088/account_at?characterEncoding=utf-8&useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 151285
 2020-09-19 11:54:55.707  INFO 12080 --- [io-56088-exec-3] io.seata.sample.service.AccountService   : parameter => userId=U100000,money=3000
 2020-09-19 11:54:55.707  INFO 12080 --- [io-56088-exec-3] io.seata.sample.service.AccountService   : reduce account balance in transaction: 172.18.0.6:8091:2054185921
 2020-09-19 11:54:56.028  INFO 12080 --- [io-56088-exec-3] io.seata.sample.service.AccountService   : balance after transaction: 7000
 2020-09-19 11:54:56.517  WARN 12080 --- [io-56088-exec-3] c.a.c.seata.web.SeataHandlerInterceptor  : xid in change during RPC from 172.18.0.6:8091:2054185921 to null
-2020-09-19 11:54:57.129  INFO 12080 --- [h_RMROLE_1_2_16] i.s.c.r.p.c.RmBranchCommitProcessor      : rm client handle branch commit process:xid=172.18.0.6:8091:2054185921,branchId=2054185924,branchType=AT,resourceId=jdbc:mysql://121.36.33.154:56088/account_xa,applicationData=null
-2020-09-19 11:54:57.129  INFO 12080 --- [h_RMROLE_1_2_16] io.seata.rm.AbstractRMHandler            : Branch committing: 172.18.0.6:8091:2054185921 2054185924 jdbc:mysql://121.36.33.154:56088/account_xa null
+2020-09-19 11:54:57.129  INFO 12080 --- [h_RMROLE_1_2_16] i.s.c.r.p.c.RmBranchCommitProcessor      : rm client handle branch commit process:xid=172.18.0.6:8091:2054185921,branchId=2054185924,branchType=AT,resourceId=jdbc:mysql://121.36.33.154:56088/account_at,applicationData=null
+2020-09-19 11:54:57.129  INFO 12080 --- [h_RMROLE_1_2_16] io.seata.rm.AbstractRMHandler            : Branch committing: 172.18.0.6:8091:2054185921 2054185924 jdbc:mysql://121.36.33.154:56088/account_at null
 2020-09-19 11:54:57.129  INFO 12080 --- [h_RMROLE_1_2_16] io.seata.rm.AbstractRMHandler            : Branch commit result: PhaseTwo_Committed
 ```
 
 
 
 ```
-docker start mysql_dtx_seata_official_order_xa;
-docker start mysql_dtx_seata_official_storage_xa;
-docker start mysql_dtx_seata_official_account_xa;
+docker start mysql_dtx_seata_official_order_at;
+docker start mysql_dtx_seata_official_storage_at;
+docker start mysql_dtx_seata_official_account_at;
 docker start seata_server;
 ```
 

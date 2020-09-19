@@ -10,6 +10,9 @@
 
     <artifactId>account-at</artifactId>
 
+    <description>
+        账户
+    </description>
 
     <dependencies>
         <!-- db -->

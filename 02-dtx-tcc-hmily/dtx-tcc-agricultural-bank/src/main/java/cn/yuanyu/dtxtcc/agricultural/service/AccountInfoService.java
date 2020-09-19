@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface AccountInfoService {
 
-
     /**
      * 账户扣款
      *

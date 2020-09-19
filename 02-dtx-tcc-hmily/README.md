@@ -121,5 +121,9 @@ CREATE DATABASE `hmily`;
 
 
 
-
+```
+docker start mysql_tcc_agricultural_bank;
+docker start mysql_tcc_construction_bank;
+docker start nacos_dtx_tcc;
+```
 
