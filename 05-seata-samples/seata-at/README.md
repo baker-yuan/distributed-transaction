@@ -1,10 +1,14 @@
 1.  https://github.com/seata/seata-samples/tree/master/seata-xa 
 
-# Sample of Seata XA mode
+# Sample of Seata AT mode
 
 Spring Cloud 中使用 Seata，使用 Feign 实现远程调用，使用 Spring JDBC 访问 MySQL 数据库
 
+![relation](./relation.png)
+
 # 四个服务分别创建四个数据库
+
+![db](./db.png)
 
 ## seata-server
 
@@ -20,7 +24,7 @@ docker run \
 docker logs -f seata_server 
 ```
 
-## account-xa
+## account-at
 
 ```bash
 docker run \
@@ -52,7 +56,7 @@ CREATE TABLE `account_tbl`
 insert into account_tbl(user_id, money) values ('U100000', '10000');
 ```
 
-## order-xa
+## order-at
 
 ```bash
 docker run \
@@ -84,7 +88,7 @@ CREATE TABLE `order_tbl`
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 ```
 
-## storage-xa
+## storage-at
 
 ```bash
 docker run \
